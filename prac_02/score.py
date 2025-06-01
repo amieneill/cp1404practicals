@@ -22,7 +22,7 @@ def main():
 
 
 def determine_score_result(score):
-    """Determine score based on score input."""
+    """Determine result based on score input."""
     if score >= 90:
         return "Excellent"
     elif score >= 50:
