@@ -8,9 +8,9 @@ Name: Amie Neill
 def main():
     """Run temperatures program."""
 
-    MENU = "Menu:\n(C)elsius to Fahrenheit\n(F)ahrenheit to Celsius\n(Q)uit"
+    menu = "Menu:\n(C)elsius to Fahrenheit\n(F)ahrenheit to Celsius\n(Q)uit"
 
-    print(MENU)
+    print(menu)
     choice = input("Choice: ").upper()
     while choice != "Q":
         if choice == "C":
@@ -23,7 +23,7 @@ def main():
             print(f"Result: {celsius:.2f} C")
         else:
             print("Invalid option")
-        print(MENU)
+        print(menu)
         choice = input("Choice: ").upper()
     print("Thank you.")
 
