@@ -1,6 +1,6 @@
 """
 CP1404 - Practical_03
-Random Numbers Program
+Random Numbers
 Name: Amie Neill
 """
 
