@@ -17,7 +17,11 @@ print(f"Hi {name}!")
 in_file.close()
 
 # 3
-with
+with open("numbers.txt", 'r') as in_file:
+    number_one = int(in_file.readline())
+    number_two = int(in_file.readline())
+print(number_one + number_two)
+
 
 
 
