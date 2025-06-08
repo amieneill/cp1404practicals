@@ -33,5 +33,3 @@ while MIN_PRICE <= price <= MAX_PRICE:
 
     price *= (1 + price_change)
     print(f"${price:,.2f}")
-
-
