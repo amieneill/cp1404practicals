@@ -18,12 +18,7 @@ print(random.randrange(3, 10, 2))  # line 2
 # No, line 2 would not be able to produce a 4
 # In this case it'll only produce an odd number in range
 
-
-
-
-
-
-
-
-
-
+print(random.uniform(2.5, 5.5))  # line 3
+# Output is a random float between 2.5 and 5.5
+# Smallest number: 2.5
+# Largest number: 5.5
