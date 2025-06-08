@@ -39,6 +39,9 @@ def is_valid_password(password):
             number_of_digit = number_of_digit + 1
         if character.islower():
             number_of_lower = number_of_lower + 1
+        if character.isupper():
+            number_of_upper = number_of_upper + 1
+        
 
 
 
