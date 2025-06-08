@@ -22,6 +22,10 @@ with open("numbers.txt", 'r') as in_file:
     number_two = int(in_file.readline())
 print(number_one + number_two)
 
-
-
-
+# 4
+total = 0
+with open("numbers.txt", 'r') as in_file:
+    for line in in_file:
+        number = int(line)
+        total = total + number
+print(f"The total is {total}")
