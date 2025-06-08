@@ -41,9 +41,8 @@ def is_valid_password(password):
             number_of_lower = number_of_lower + 1
         if character.isupper():
             number_of_upper = number_of_upper + 1
-        
-
-
+        if character in SPECIAL_CHARACTERS:
+            number_of_special = number_of_special + 1
 
     # TODO: if any of the 'normal' counts are zero, return False
 
