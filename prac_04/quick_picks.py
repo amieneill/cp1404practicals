@@ -4,13 +4,20 @@ Name: Amie Neill
 Quick pick program
 """
 
+import random
+
 MINIMUM_NUMBER = 1
 MAXIMUM_NUMBER = 45
 NUMBERS_PER_LINE = 6
 
 number_of_quick_picks = int(input("How many quick picks: "))
 for i in range(number_of_quick_picks):
-    pass
+    quick_pick = []
+    for j in range(NUMBERS_PER_LINE):
+        number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER)
+        if number not in quick_pick:
+            quick_pick.append(number)
+        print(number)
 
 
 
