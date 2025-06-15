@@ -19,11 +19,13 @@ def load_data():
         line = line.strip()  # Remove the \n
         parts = line.split(',')  # Separate the data into its parts
         parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
-        print(parts)  # See if that worked
-        print("----------")
         data.append(parts)
     input_file.close()
     return data
+
+
+def display_subject_details():
+    pass
 
 
 main()
