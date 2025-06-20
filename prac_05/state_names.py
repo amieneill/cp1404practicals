@@ -12,10 +12,11 @@ print(CODE_TO_NAME)
 for code in CODE_TO_NAME:
     print(f"{code:3} is {CODE_TO_NAME[code]}")
 
-state_code = input("Enter short state: ").upper()
-while state_code != "":
-    if state_code in CODE_TO_NAME:
-        print(state_code, "is", CODE_TO_NAME[state_code])
-    else:
-        print("Invalid short state")
+is_valid_input = False
+while not is_valid_input:
     state_code = input("Enter short state: ").upper()
+    try:
+        print(state_code, "is", CODE_TO_NAME[state_code])
+        is_valid_input = True
+    except KeyError:
+        print("Invalid short state")
