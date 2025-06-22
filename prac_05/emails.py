@@ -3,7 +3,7 @@ CP1404 - Practical_05
 Name: Amie Neill
 Emails Exercise
 Estimate: 45 minutes
-Actual:
+Actual: 43 minutes
 """
 
 def main():
