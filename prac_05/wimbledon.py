@@ -10,7 +10,16 @@ FILENAME = "wimbledon.csv"
 
 def main():
     data = load_data()
+    champion_to_win, countries = calculate_data(data)
 
+    print("Wimbledon Champions:")
+    for champion, wins in champion_to_win.items():
+        print(f"{champion} {wins}")
+
+    print(f"These {len(countries)} countries have won Wimbledon: \n{', '.join(sorted(countries))}")
+
+
+def calculate_data(data):
     champion_to_win = {}
     countries = set()
     for data_point in data:
@@ -20,12 +29,7 @@ def main():
             champion_to_win[champion] += 1
         else:
             champion_to_win[champion] = 1
-
-    print("Wimbledon Champions:")
-    for champion, wins in champion_to_win.items():
-        print(f"{champion} {wins}")
-
-    print(f"These {len(countries)} countries have won Wimbledon: \n{', '.join(sorted(countries))}")
+    return champion_to_win, countries
 
 
 def load_data():
