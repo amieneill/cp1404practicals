@@ -2,6 +2,8 @@
 CP1404 - Practical_05
 Name: Amie Neill
 Word Occurrences Exercise
+Estimate: 25 minutes
+Actual: 34 minutes
 """
 
 word_to_count = {}
