@@ -6,7 +6,25 @@ Estimate: 90 minutes
 Actual:
 """
 
-filename = "wimbledon.csv"
-with open(filename, "r", encoding="utf-8-sig") as in_file:
-    for line in in_file:
-        print(line)
+FILENAME = "wimbledon.csv"
+
+def main():
+    data = []
+    with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split(",")
+            data.append(parts)
+
+    champion_to_win = {}
+    for data_point in data:
+        champion = data_point[2]
+        if champion in champion_to_win:
+            champion_to_win[champion] += 1
+        else:
+            champion_to_win[champion] = 1
+
+    for champion, wins in champion_to_win.items():
+        print(f"{champion} {wins}")
+
+main()
