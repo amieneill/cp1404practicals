@@ -17,14 +17,20 @@ def main():
             data.append(parts)
 
     champion_to_win = {}
+    countries = set()
     for data_point in data:
         champion = data_point[2]
+        countries.add(data_point[1])
         if champion in champion_to_win:
             champion_to_win[champion] += 1
         else:
             champion_to_win[champion] = 1
 
+    print("Wimbledon Champions:")
     for champion, wins in champion_to_win.items():
         print(f"{champion} {wins}")
+
+    print(f"These {len(countries)} countries have won Wimbledon: \n{', '.join(sorted(countries))}")
+
 
 main()
