@@ -3,19 +3,21 @@ CP1404 - Practical_05
 Name: Amie Neill
 Wimbledon Exercise
 Estimate: 90 minutes
-Actual:
+Actual: 97 minutes
 """
 
 FILENAME = "wimbledon.csv"
 
 
 def main():
+    """Run wimbledon champions and countries program."""
     data = load_data()
     champion_to_win, countries = calculate_data(data)
     display_results(champion_to_win, countries)
 
 
 def display_results(champion_to_win, countries):
+    """Display wimbledon champions and countries summary."""
     print("Wimbledon Champions:")
     for champion, wins in champion_to_win.items():
         print(f"{champion} {wins}")
@@ -23,6 +25,7 @@ def display_results(champion_to_win, countries):
 
 
 def calculate_data(data):
+    """Create a dictionary of champions, wins and countries set from data."""
     champion_to_win = {}
     countries = set()
     for data_point in data:
@@ -36,6 +39,7 @@ def calculate_data(data):
 
 
 def load_data():
+    """Load data from 'wimbledon.csv' file."""
     data = []
     with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
