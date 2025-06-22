@@ -12,6 +12,7 @@ for word in words:
     count = word_to_count.get(word, 0)
     word_to_count[word] = count + 1
 
+words = sorted(word_to_count.keys())
 maximum_length = max(len(word) for word in words)
 
 for word in words:
