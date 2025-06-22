@@ -16,7 +16,11 @@ def main():
         response = input(f"Is your name {name}? (y/n): ")
         if response != "y" and response != "":
             name = input("Name: ")
+        email_to_name[email] = name
         print(f"Name: {name} ({email})")
         email = input("Email: ")
+
+    for email, name in email_to_name.items():
+        print(f"{name} ({email})")
 
 main()
