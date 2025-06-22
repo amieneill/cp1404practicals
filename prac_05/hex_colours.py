@@ -1,7 +1,7 @@
 """
 CP1404 - Practical_05
 Name: Amie Neill
-Hex Colours
+Hex Colours Exercise
 """
 
 COLOUR_TO_CODE = {"Absolute Zero": "#0048ba", "AliceBlue": "#f0f8ff",
