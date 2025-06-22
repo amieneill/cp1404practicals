@@ -8,14 +8,17 @@ Actual:
 
 FILENAME = "wimbledon.csv"
 
+
 def main():
     data = load_data()
     champion_to_win, countries = calculate_data(data)
+    display_results(champion_to_win, countries)
 
+
+def display_results(champion_to_win, countries):
     print("Wimbledon Champions:")
     for champion, wins in champion_to_win.items():
         print(f"{champion} {wins}")
-
     print(f"These {len(countries)} countries have won Wimbledon: \n{', '.join(sorted(countries))}")
 
 
