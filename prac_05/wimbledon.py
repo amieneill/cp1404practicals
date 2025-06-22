@@ -9,12 +9,7 @@ Actual:
 FILENAME = "wimbledon.csv"
 
 def main():
-    data = []
-    with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
-        in_file.readline()
-        for line in in_file:
-            parts = line.strip().split(",")
-            data.append(parts)
+    data = load_data()
 
     champion_to_win = {}
     countries = set()
@@ -31,6 +26,16 @@ def main():
         print(f"{champion} {wins}")
 
     print(f"These {len(countries)} countries have won Wimbledon: \n{', '.join(sorted(countries))}")
+
+
+def load_data():
+    data = []
+    with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split(",")
+            data.append(parts)
+    return data
 
 
 main()
