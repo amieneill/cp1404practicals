@@ -3,7 +3,7 @@ CP1404 - Practical_06
 Name: Amie Neill
 Language Exercise
 Estimate: 45 minutes
-Actual:
+Actual: 1.5 hours
 """
 
 from programming_language import ProgrammingLanguage
