@@ -6,8 +6,10 @@ Estimate: 45 minutes
 Actual:
 """
 
+
 class ProgrammingLanguage:
     """Represents a programming language."""
+
     def __init__(self, name, typing, reflection, year=0):
         """Initialise a programming language instance."""
         self.name = name
@@ -15,3 +17,6 @@ class ProgrammingLanguage:
         self.reflection = reflection
         self.year = year
 
+    def is_dynamic(self):
+        """Return True if programming language is dynamic."""
+        return self.typing == "dynamic"
