@@ -16,17 +16,49 @@ def main():
     print("My guitars!")
     name = input("Name: ")
     while name != "":
-        year = int(input("Year: "))
-        cost = float(input("Cost: "))
+        year = get_valid_year()
+        cost = get_valid_cost()
         guitar = Guitar(name, year, cost)
         guitars.append(guitar)
-        print(f"{guitar.name} ({guitar.year}) : ${guitar.cost} added.")
+        print(f"{guitar.name} ({guitar.year}) : ${guitar.cost:10,.2f} added.")
         name = input("Name: ")
 
     maximum_name_length = max(len(guitar.name) for guitar in guitars)
     print("These are my guitars:")
     for i, guitar in enumerate(guitars, 1):
         print(f"Guitar {i}: {guitar.name:>{maximum_name_length}} ({guitar.year}), worth ${guitar.cost:10,.2f}")
+
+
+def get_valid_cost():
+    """Get valid input for guitar cost."""
+    cost = 0
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            cost = float(input("Cost: "))
+            if cost < 0:
+                print("Cost must be >= 0")
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Invalid input.")
+    return cost
+
+
+def get_valid_year():
+    """Get valid input for guitar year."""
+    year = 0
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            year = int(input("Year: "))
+            if year < 0:
+                print("Year must be >= 0")
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Invalid input.")
+    return year
 
 
 main()
