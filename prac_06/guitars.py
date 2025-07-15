@@ -1,9 +1,9 @@
 """
 CP1404 - Practical_06
 Name: Amie Neill
-Guitars Exercise
+Guitar Exercise
 Estimate: 3 hours
-Actual:
+Actual: 4 hours
 """
 
 from prac_06.guitar import Guitar
