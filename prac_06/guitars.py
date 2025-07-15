@@ -20,14 +20,20 @@ def main():
         cost = get_valid_cost()
         guitar = Guitar(name, year, cost)
         guitars.append(guitar)
-        print(f"{guitar.name} ({guitar.year}) : ${guitar.cost:10,.2f} added.")
+        print(f"{guitar.name} ({guitar.year}) : ${guitar.cost:,.2f} added.")
         name = input("Name: ")
+
+    # guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
+    # guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
 
     maximum_name_length = max(len(guitar.name) for guitar in guitars)
     print("These are my guitars:")
     for i, guitar in enumerate(guitars, 1):
-        print(f"Guitar {i}: {guitar.name:>{maximum_name_length}} ({guitar.year}), worth ${guitar.cost:10,.2f}")
-
+        if guitar.is_vintage():
+            vintage_string = "(vintage)"
+        else:
+            vintage_string = ""
+        print(f"Guitar {i}: {guitar.name:>{maximum_name_length}} ({guitar.year}), worth ${guitar.cost:10,.2f} {vintage_string}")
 
 def get_valid_cost():
     """Get valid input for guitar cost."""
@@ -35,7 +41,7 @@ def get_valid_cost():
     is_valid_input = False
     while not is_valid_input:
         try:
-            cost = float(input("Cost: "))
+            cost = float(input("Cost: $"))
             if cost < 0:
                 print("Cost must be >= 0")
             else:
