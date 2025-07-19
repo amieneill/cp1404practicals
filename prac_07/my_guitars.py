@@ -13,12 +13,7 @@ FILENAME = "guitars.csv"
 
 def main():
     """Run program to load, display and sort a list of guitars using Guitar class."""
-    guitars = []
-    with open(FILENAME, "r") as in_file:
-        reader = csv.reader(in_file)
-        for row in reader:
-            name, year, cost = row
-            guitars.append(Guitar(name, int(year), float(cost)))
+    guitars = load_guitars()
 
     print("Display Guitars:")
     display_guitars(guitars)
@@ -26,6 +21,40 @@ def main():
     print("\nSorted Guitars by year:")
     guitars.sort()
     display_guitars(guitars)
+
+    get_new_guitars(guitars)
+
+
+def get_new_guitars(guitars):
+    """Get new guitars from user, append to list and save to guitars.csv."""
+    new_guitars = []
+
+    name = input("Name: ")
+    while name != "":
+        year = int(input("Year: "))
+        cost = float(input("Cost: "))
+        new_guitar = Guitar(name, year, cost)
+        new_guitars.append(new_guitar)
+        print(f"{new_guitar.name} ({new_guitar.year}) : ${new_guitar.cost:,.2f} added.")
+        name = input("Name: ")
+
+    for new_guitar in new_guitars:
+        guitars.append(new_guitar)
+
+    with open(FILENAME, "w") as out_file:
+        writer = csv.writer(out_file)
+        for new_guitar in guitars:
+            writer.writerow([new_guitar.name, new_guitar.year, new_guitar.cost])
+
+
+def load_guitars():
+    guitars = []
+    with open(FILENAME, "r") as in_file:
+        reader = csv.reader(in_file)
+        for row in reader:
+            name, year, cost = row
+            guitars.append(Guitar(name, int(year), float(cost)))
+    return guitars
 
 
 def display_guitars(guitars):
