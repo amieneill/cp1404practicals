@@ -20,8 +20,15 @@ def main():
             name, year, cost = row
             guitars.append(Guitar(name, int(year), float(cost)))
 
+    print("Display Guitars:")
     for i, guitar in enumerate(guitars, 1):
         print(f"{i}. {guitar}")
+
+    print("Display sorted Guitars:")
+    guitars.sort()
+    for i, guitar in enumerate(guitars, 1):
+        print(f"{i}. {guitar}")
+
 
 
 if __name__ == "__main__":
