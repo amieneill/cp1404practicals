@@ -31,8 +31,30 @@ def get_new_guitars(guitars):
 
     name = input("Name: ")
     while name != "":
-        year = int(input("Year: "))
-        cost = float(input("Cost: "))
+        year = 0
+        is_valid_input = False
+        while not is_valid_input:
+            try:
+                year = int(input("Year: "))
+                if year < 0:
+                    print("Year must be >= 0")
+                else:
+                    is_valid_input = True
+            except ValueError:
+                print("Invalid input.")
+
+        cost = 0
+        is_valid_input = False
+        while not is_valid_input:
+            try:
+                cost = float(input("Cost: $"))
+                if cost < 0:
+                    print("Cost must be >= 0")
+                else:
+                    is_valid_input = True
+            except ValueError:
+                print("Invalid input.")
+
         new_guitar = Guitar(name, year, cost)
         new_guitars.append(new_guitar)
         print(f"{new_guitar.name} ({new_guitar.year}) : ${new_guitar.cost:,.2f} added.")
