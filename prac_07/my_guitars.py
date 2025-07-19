@@ -12,7 +12,7 @@ FILENAME = "guitars.csv"
 
 
 def main():
-    """DOCSTRING TBA."""
+    """Run program to load, display and sort a list of guitars using Guitar class."""
     guitars = []
     with open(FILENAME, "r") as in_file:
         reader = csv.reader(in_file)
@@ -21,14 +21,17 @@ def main():
             guitars.append(Guitar(name, int(year), float(cost)))
 
     print("Display Guitars:")
-    for i, guitar in enumerate(guitars, 1):
-        print(f"{i}. {guitar}")
+    display_guitars(guitars)
 
-    print("Display sorted Guitars:")
+    print("\nSorted Guitars by year:")
     guitars.sort()
-    for i, guitar in enumerate(guitars, 1):
-        print(f"{i}. {guitar}")
+    display_guitars(guitars)
 
+
+def display_guitars(guitars):
+    """Display a list of guitars."""
+    for i, guitar in enumerate(guitars, 1):
+        print(f"{i:2}. {guitar}")
 
 
 if __name__ == "__main__":
