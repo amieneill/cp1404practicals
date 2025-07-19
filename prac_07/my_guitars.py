@@ -31,30 +31,8 @@ def get_new_guitars(guitars):
 
     name = input("Name: ")
     while name != "":
-        year = 0
-        is_valid_input = False
-        while not is_valid_input:
-            try:
-                year = int(input("Year: "))
-                if year < 0:
-                    print("Year must be >= 0")
-                else:
-                    is_valid_input = True
-            except ValueError:
-                print("Invalid input.")
-
-        cost = 0
-        is_valid_input = False
-        while not is_valid_input:
-            try:
-                cost = float(input("Cost: $"))
-                if cost < 0:
-                    print("Cost must be >= 0")
-                else:
-                    is_valid_input = True
-            except ValueError:
-                print("Invalid input.")
-
+        year = get_valid_year()
+        cost = get_valid_cost()
         new_guitar = Guitar(name, year, cost)
         new_guitars.append(new_guitar)
         print(f"{new_guitar.name} ({new_guitar.year}) : ${new_guitar.cost:,.2f} added.")
@@ -69,7 +47,40 @@ def get_new_guitars(guitars):
             writer.writerow([new_guitar.name, new_guitar.year, new_guitar.cost])
 
 
+def get_valid_cost():
+    """Get guitar cost and check if it is valid."""
+    cost = 0
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            cost = float(input("Cost: $"))
+            if cost < 0:
+                print("Cost must be >= 0")
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Invalid input.")
+    return cost
+
+
+def get_valid_year():
+    """Get guitar year and check if it is valid."""
+    year = 0
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            year = int(input("Year: "))
+            if year < 0:
+                print("Year must be >= 0")
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Invalid input.")
+    return year
+
+
 def load_guitars():
+    """Load guitars from guitars.csv and return list of Guitar instances."""
     guitars = []
     with open(FILENAME, "r") as in_file:
         reader = csv.reader(in_file)
