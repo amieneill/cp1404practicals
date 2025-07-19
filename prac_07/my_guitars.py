@@ -15,18 +15,18 @@ def main():
     """Run program to load, display and sort a list of guitars using Guitar class."""
     guitars = load_guitars()
 
-    print("Display Guitars:")
-    display_guitars(guitars)
-
-    print("\nSorted Guitars by year:")
+    print("Guitar list:")
     guitars.sort()
     display_guitars(guitars)
 
+    print("Add a new guitar:")
     get_new_guitars(guitars)
+    save_guitars(guitars)
+    print("Finished.")
 
 
 def get_new_guitars(guitars):
-    """Get new guitars from user, append to list and save to guitars.csv."""
+    """Get new guitars from user, append to list of guitars."""
     new_guitars = []
 
     name = input("Name: ")
@@ -41,6 +41,9 @@ def get_new_guitars(guitars):
     for new_guitar in new_guitars:
         guitars.append(new_guitar)
 
+
+def save_guitars(guitars):
+    """Save the list of guitars to guitars.csv."""
     with open(FILENAME, "w") as out_file:
         writer = csv.writer(out_file)
         for new_guitar in guitars:
