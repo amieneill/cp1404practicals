@@ -3,8 +3,11 @@ CP1404 - Practical_07
 Name: Amie Neill
 Project Management Program
 Estimate: 6 hours
-Actual:
+Actual: INCOMPLETE
 """
+from project import Project
+
+FILENAME = "projects.txt"
 
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
 
@@ -17,7 +20,16 @@ def main():
     while choice != "Q":
         if choice == "L":
             # Prompt the user for a filename to load projects from and load them.
-            pass
+            projects = []
+            with open(FILENAME, "r") as in_file:
+                in_file.readline()
+                for line in in_file:
+                    name, start_date, priority, cost_estimate, completion_percentage = line.strip().split("\t")
+                    projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+
+            for i, project in enumerate(projects, 1):
+                print(f"{i}. {project}")
+
         elif choice == "S":
             # Prompt the user for a filename to save projects to and save them.
             pass
