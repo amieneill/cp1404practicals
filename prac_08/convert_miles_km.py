@@ -27,13 +27,18 @@ class MilesToKilometresConverterApp(App):
         """Handle miles to kilometre conversion."""
         print('handle conversion')
         miles = self.handle_input(text)
-        self.km_output = str(miles * MILES_TO_KILOMETRES)
+        self.update_result(miles)
 
     def handle_increment(self, text, change):
         """Handle Up/Down buttons current miles value by +1 or -1."""
         print('handle_increment')
         miles = self.handle_input(text) + change
         self.root.ids.input_miles.text = str(miles)
+        self.update_result(miles)
+
+    def update_result(self, miles):
+        """Update the kilometre output label based on the mile value."""
+        print('display result')
         self.km_output = str(miles * MILES_TO_KILOMETRES)
 
     def handle_input(self, text):
