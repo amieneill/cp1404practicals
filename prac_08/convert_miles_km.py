@@ -3,7 +3,7 @@ CP1404 - Practical_08
 Name: Amie Neill
 Miles to Kilometres Converter
 Estimate: 3 hours
-Actual:
+Actual: 4 hours, 10 minutes
 """
 
 from kivy.app import App
@@ -31,14 +31,14 @@ class MilesToKilometresConverterApp(App):
 
     def handle_increment(self, text, change):
         """Handle Up/Down buttons current miles value by +1 or -1."""
-        print('handle_increment')
+        print('handle increment')
         miles = self.handle_input(text) + change
         self.root.ids.input_miles.text = str(miles)
         self.update_result(miles)
 
     def update_result(self, miles):
         """Update the kilometre output label based on the mile value."""
-        print('display result')
+        print('update result')
         self.km_output = str(miles * MILES_TO_KILOMETRES)
 
     def handle_input(self, text):
