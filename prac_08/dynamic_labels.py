@@ -8,6 +8,7 @@ Actual:
 
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.label import Label
 
 
 class DynamicLabelsApp(App):
@@ -17,6 +18,9 @@ class DynamicLabelsApp(App):
         self.title = 'Dynamic Labels'
         self.root = Builder.load_file('dynamic_labels.kv')
         self.names = ["Archer", "Sia", "Charlie", "Kass", "Willow"]
+        for name in self.names:
+            temp_label = Label(text=name)
+            self.root.ids.main.add_widget(temp_label)
         return self.root
 
 
