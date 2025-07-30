@@ -24,12 +24,22 @@ class MilesToKilometresConverterApp(App):
         return self.root
 
     def handle_conversion(self, text):
+        """Handle miles to kilometre conversion."""
         print('handle conversion')
         try:
             miles = float(text)
             self.km_output = str(miles * MILES_TO_KILOMETRES)
         except ValueError:
             self.km_output = "Invalid input"
+
+    def handle_increment(self, text, change):
+        """Handle Up/Down buttons current miles value by +1 or -1."""
+        print('handle_increment')
+        miles = float(text)
+        miles = miles + change
+        self.root.ids.input_miles.text = str(miles)
+        self.km_output = str(miles * MILES_TO_KILOMETRES)
+
 
 
 MilesToKilometresConverterApp().run()
