@@ -13,12 +13,14 @@ from kivy.uix.label import Label
 
 class DynamicLabelsApp(App):
     """Kivy App that displays dynamic labels for names in a list."""
+    def __init__(self, **kwargs):
+        super().__init__()
+        self.names = ["Archer", "Sia", "Charlie", "Kass", "Willow"]
 
     def build(self):
         """Build the Kivy App GUI using kv file."""
         self.title = 'Dynamic Labels'
         self.root = Builder.load_file('dynamic_labels.kv')
-        self.names = ["Archer", "Sia", "Charlie", "Kass", "Willow"]
         self.create_labels()
         return self.root
 
