@@ -3,7 +3,7 @@ CP1404 - Practical_08
 Name: Amie Neill
 Dynamic Labels
 Estimate: 2 hours
-Actual:
+Actual: 65 minutes
 """
 
 from kivy.app import App
@@ -13,7 +13,7 @@ from kivy.uix.label import Label
 
 class DynamicLabelsApp(App):
     """Kivy App that displays dynamic labels for names in a list."""
-    def __init__(self, **kwargs):
+    def __init__(self):
         super().__init__()
         self.names = ["Archer", "Sia", "Charlie", "Kass", "Willow"]
 
