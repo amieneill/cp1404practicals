@@ -23,18 +23,26 @@ def main():
             print("Taxis available:")
             for i, taxi in enumerate(taxis):
                 print(f"{i} - {taxi}")
-            taxi_choice = int(input("Choose taxi: "))
-            current_taxi = taxis[taxi_choice]
+            try:
+                taxi_choice = int(input("Choose taxi: "))
+                current_taxi = taxis[taxi_choice]
+            except IndexError:
+                print("Invalid taxi choice")
         elif choice == "d":
             if current_taxi:
                 current_taxi.start_fare()
-                distance = float(input("Drive how far? "))
-                current_taxi.drive(distance)
-                fare_price = current_taxi.get_fare()
-                print(f"Your {current_taxi.name} trip cost you ${fare_price:.2f}")
-                total_bill = total_bill + fare_price
+                try:
+                    distance = float(input("Drive how far? "))
+                    current_taxi.drive(distance)
+                    fare_price = current_taxi.get_fare()
+                    print(f"Your {current_taxi.name} trip cost you ${fare_price:.2f}")
+                    total_bill = total_bill + fare_price
+                except ValueError:
+                    print("Invalid input. Enter a number.")
+            else:
+                print("You need to choose a taxi before you can drive")
         else:
-            print("Invalid option.")
+            print("Invalid option")
         print(f"Bill to date: ${total_bill:.2f}")
         print(MENU)
         choice = input(">>> ").lower()
