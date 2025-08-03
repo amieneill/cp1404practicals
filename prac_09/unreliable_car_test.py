@@ -7,20 +7,20 @@ from prac_09.unreliable_car import UnreliableCar
 
 def main():
     """Test multiple UnreliableCars."""
-    car_one = UnreliableCar("Good Car", 100, 90)
-    car_two = UnreliableCar("Okay Car", 100, 70)
-    car_three = UnreliableCar("Bad Car", 100, 10)
+    good_car = UnreliableCar("Toyota", 100, 90)
+    average_car = UnreliableCar("Mazda", 100, 70)
+    bad_car = UnreliableCar("BMW", 100, 10)
 
     for i in range(1, 11):
-        print(f"Attempt to drive {i}km:")
-        print(f"{car_one.name} drove {car_one.drive(i)}km")
-        print(f"{car_two.name} drove {car_two.drive(i)}km")
-        print(f"{car_three.name} drove {car_three.drive(i)}km")
+        print(f"Attempting to drive {i}km:")
+        print(f"{good_car.name:7} drove {good_car.drive(i):3}km")
+        print(f"{average_car.name:7} drove {average_car.drive(i):3}km")
+        print(f"{bad_car.name:7} drove {bad_car.drive(i):3}km")
 
     print("Summary of Attempts:")
-    print(car_one)
-    print(car_two)
-    print(car_three)
+    print(good_car)
+    print(average_car)
+    print(bad_car)
 
 
 main()
